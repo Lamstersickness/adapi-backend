@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 import java.io.File;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ads")
+@RequestMapping("/api/ads")
 public class AdController {
 
     @Autowired
@@ -41,7 +42,8 @@ public class AdController {
 
                 String filePath = uploadDir + image.getOriginalFilename();
                 image.transferTo(new File(filePath));
-                imageUrl = "http://localhost:8081/uploads/" + image.getOriginalFilename();
+                String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
+                imageUrl = baseUrl + "/uploads/" + image.getOriginalFilename();
             }
 
             // ✅ Create and save Ad object
