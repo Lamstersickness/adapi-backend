@@ -21,7 +21,7 @@ This is the backend API for the Ad Keyword Targeting platform — a full-stack p
 ---
 
 ## 📂 Project Structure
-
+```bash
 src/
 └── main/
 ├── java/
@@ -32,7 +32,7 @@ src/
 └── resources/
 ├── application.properties
 └── static/uploads/
-
+```
 
 ---
 
@@ -42,12 +42,13 @@ src/
    ```bash
    git clone https://github.com/yourusername/adapi-backend.git
    cd adapi-backend
-
+   ```
     Add your application.properties:
-
+```bash
 spring.datasource.url=jdbc:mysql://your-db-host:port/dbname
 spring.datasource.username=your-user
 spring.datasource.password=your-pass
+```
 
 Run the app:
 
